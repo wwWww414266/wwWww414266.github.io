@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>军事理论 - 朝鲜战争胜负标准分析</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        :root {
+            --primary: #1a365d;
+            --secondary: #2d3748;
+            --accent: #e53e3e;
+            --light: #f7fafc;
+            --dark: #2d3748;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+        }
+        
+        .intro {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem auto;
+            box-shadow: var(--shadow);
+            max-width: 900px;
+            position: relative;
+        }
+        
+        .intro::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--accent);
+            border-radius: 5px 0 0 5px;
+        }
+        
+        .intro p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            background: var(--primary);
+            color: white;
+            padding: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card-header i {
+            font-size: 1.5rem;
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-content ul {
+            list-style-type: none;
+        }
+        
+        .card-content li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .card-content li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(229, 62, 62, 0.2) 0%, rgba(229, 62, 62, 0) 100%);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        .summary {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem auto;
+            box-shadow: var(--shadow);
+            max-width: 900px;
+            border-left: 5px solid var(--accent);
+        }
+        
+        .summary h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .timeline {
+            max-width: 900px;
+            margin: 3rem auto;
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .timeline h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        
+        .timeline-container {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline-container::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -1.5rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--accent);
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content {
+            background: var(--light);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+        }
+        
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 3rem auto;
+            max-width: 900px;
+        }
+        
+        .side {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .side h3 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .side ul {
+            list-style-type: none;
+        }
+        
+        .side li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .side li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .conclusion {
+            text-align: center;
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            border-top: 5px solid var(--accent);
+        }
+        
+        .conclusion h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .conclusion p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .hidden {
+            opacity: 0;
+        }
+        
+        /* 全屏卡片样式 */
+        .fullscreen-card {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .fullscreen-card.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .fullscreen-content {
+            background: white;
+            border-radius: 15px;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        
+        .fullscreen-card.active .fullscreen-content {
+            transform: scale(1);
+        }
+        
+        .fullscreen-header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 15px 15px 0 0;
+        }
+        
+        .fullscreen-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .fullscreen-title i {
+            font-size: 2rem;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+        
+        .close-btn:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .fullscreen-body {
+            padding: 2.5rem;
+        }
+        
+        .fullscreen-body h3 {
+            color: var(--primary);
+            margin: 1.5rem 0 1rem;
+            border-bottom: 2px solid var(--light);
+            padding-bottom: 0.5rem;
+        }
+        
+        .fullscreen-body p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+        
+        .fullscreen-body ul {
+            list-style-type: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .fullscreen-body li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .fullscreen-body li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .data-table th, .data-table td {
+            padding: 0.8rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .data-table th {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .data-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        .data-table tr:hover {
+            background: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>军事理论</h1>
+            <p class="subtitle">衡量战争胜负的标准分析——以朝鲜战争为例</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="intro animate">
+            <p>战争胜负的衡量标准是一个复杂而多维的问题，远不止于简单的领土得失或军事优势。本分析以朝鲜战争为例，探讨如何从多个维度综合评估一场战争的胜负。</p>
+            <p>朝鲜战争（1950-1953）是一场典型的"没有胜利者的战争"，双方最终在接近起点的位置停战。通过分析这场战争，我们可以更清晰地理解衡量战争胜负的多重标准。</p>
+        </div>
+        
+        <div class="content-grid">
+            <div class="card hidden" data-card="1">
+                <div class="card-header">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>一、战略目标的达成度</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>这是最核心的标准。中国参战的核心目标是"抗美援朝，保家卫国"，将敌军从鸭绿江边击退，保住朝鲜这个缓冲区，<span class="highlight">最终战线稳定在三八线，成功达成了这一战略目标</span>。</li>
+                        <li>以美国为首的"联合国军"最初目标是恢复韩国主权，这一目标已实现。但其后越过三八线、统一朝鲜的扩大化目标则彻底失败。从战略目标看，中朝方面是成功的。</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card hidden" data-card="2">
+                <div class="card-header">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>二、战线与领土的实际控制</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>战争从三八线开始，最终又在三八线附近结束。<span class="highlight">双方都未能通过武力手段永久改变领土现状。</span>从纯粹的领土得失来看，这场战争是一场"平局"。</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card hidden" data-card="3">
+                <div class="card-header">
+                    <i class="fas fa-globe-americas"></i>
+                    <h3>三、军事威望与国际地位的损益</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>新中国通过与世界最强军事联盟打成平手，<span class="highlight">极大地提升了国际威望和地位</span>，一举洗刷了百年国耻，被视为亚洲军事强权的崛起。</li>
+                        <li>美国则是在一场没有取得明确胜利的停战协定上签字，其<span class="highlight">"不可战胜"</span>的神话被打破，威望受到一定损伤。</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card hidden" data-card="4">
+                <div class="card-header">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>四、战争成本与承受能力</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>双方都付出了惨重的人员伤亡和经济代价。如此高昂的成本却未能换来领土的根本改变，<span class="highlight">说明这是一场消耗巨大的僵局。</span>承受代价的能力也影响了胜负的判断。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 全屏卡片内容 -->
+        <div class="fullscreen-card" id="fullscreen-card-1">
+            <div class="fullscreen-content">
+                <div class="fullscreen-header">
+                    <div class="fullscreen-title">
+                        <i class="fas fa-bullseye"></i>
+                        <h2>战略目标的达成度</h2>
+                    </div>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="fullscreen-body">
+                    <p>战略目标的达成度是衡量战争胜负最核心的标准。战争通常是实现政治目的的手段，因此判断胜负首先要看参战方是否达成了其最初或核心的战略目标。</p>
+                    
+                    <h3>中国方面</h3>
+                    <ul>
+                        <li>中国参战的核心目标是"抗美援朝，保家卫国"，将敌军从鸭绿江边击退，保住朝鲜这个战略缓冲区。</li>
+                        <li>最终战线稳定在三八线，成功达成了这一战略目标，确保了新中国东北边境的安全。</li>
+                        <li>中国军队在装备极度落后的情况下，成功将世界最强大的军事联盟推回至战争爆发前的状态。</li>
+                    </ul>
+                    
+                    <h3>联合国军方面</h3>
+                    <ul>
+                        <li>以美国为首的"联合国军"最初目标是恢复韩国主权，这一目标已实现。</li>
+                        <li>但其后越过三八线、统一朝鲜的扩大化目标则彻底失败。</li>
+                        <li>从战略目标看，中朝方面是成功的，而联合国军方面未能达成其扩大化的战略目标。</li>
+                    </ul>
+                    
+                    <h3>战略目标达成度对比</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>参战方</th>
+                                <th>初始目标</th>
+                                <th>扩大目标</th>
+                                <th>目标达成情况</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>中国</td>
+                                <td>保家卫国，击退敌军</td>
+                                <td>维持朝鲜缓冲区</td>
+                                <td>完全达成</td>
+                            </tr>
+                            <tr>
+                                <td>联合国军</td>
+                                <td>恢复韩国主权</td>
+                                <td>统一朝鲜半岛</td>
+                                <td>仅达成初始目标</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p>从战略目标达成度来看，中国在朝鲜战争中实现了其核心目标，是战略上的胜利者；而联合国军虽然达成了初始目标，但未能实现其扩大目标，只能算是部分成功。</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="fullscreen-card" id="fullscreen-card-2">
+            <div class="fullscreen-content">
+                <div class="fullscreen-header">
+                    <div class="fullscreen-title">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h2>战线与领土的实际控制</h2>
+                    </div>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="fullscreen-body">
+                    <p>战线变化是战场态势最直观的体现。战争结束时的控制线与战争爆发时及战争中的关键节点进行对比，能清晰反映出双方的得失。</p>
+                    
+                    <h3>战争进程中的战线变化</h3>
+                    <ul>
+                        <li><strong>1950年6月25日</strong>：战争爆发，朝鲜人民军越过三八线进攻韩国</li>
+                        <li><strong>1950年9月15日</strong>：联合国军在仁川登陆，扭转战局，战线推进至鸭绿江边</li>
+                        <li><strong>1950年10月19日</strong>：中国人民志愿军入朝参战，战线被迅速推回</li>
+                        <li><strong>1951年7月10日</strong>：停战谈判开始，战线基本稳定在三八线附近</li>
+                        <li><strong>1953年7月27日</strong>：停战协定签署，战争结束，战线与战争爆发时几乎重合</li>
+                    </ul>
+                    
+                    <h3>领土控制变化分析</h3>
+                    <p>战争从三八线开始，最终又在三八线附近结束。双方都未能通过武力手段永久改变领土现状。从纯粹的领土得失来看，这场战争是一场"平局"。</p>
+                    
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>时间点</th>
+                                <th>战线位置</th>
+                                <th>控制方变化</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1950年6月25日</td>
+                                <td>三八线</td>
+                                <td>朝鲜进攻，韩国防御</td>
+                            </tr>
+                            <tr>
+                                <td>1950年9月初</td>
+                                <td>朝鲜半岛南部（釜山）</td>
+                                <td>朝鲜控制大部分地区</td>
+                            </tr>
+                            <tr>
+                                <td>1950年10月</td>
+                                <td>鸭绿江边</td>
+                                <td>联合国军控制大部分地区</td>
+                            </tr>
+                            <tr>
+                                <td>1951年7月</td>
+                                <td>三八线附近</td>
+                                <td>战线稳定，双方拉锯</td>
+                            </tr>
+                            <tr>
+                                <td>1953年7月27日</td>
+                                <td>三八线附近</td>
+                                <td>最终控制线与战争起点几乎重合</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p>尽管双方在局部地区互有进退，但最终的控制线与战争起点几乎重合。从领土得失的角度看，这场战争没有明确的胜利者，是一场消耗巨大的僵局。</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="fullscreen-card" id="fullscreen-card-3">
+            <div class="fullscreen-content">
+                <div class="fullscreen-header">
+                    <div class="fullscreen-title">
+                        <i class="fas fa-globe-americas"></i>
+                        <h2>军事威望与国际地位的损益</h2>
+                    </div>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="fullscreen-body">
+                    <p>战争的结果对参战方的军事实力和国际威望产生了深远影响，这种影响是衡量胜负的重要软指标。</p>
+                    
+                    <h3>新中国国际地位的提升</h3>
+                    <ul>
+                        <li>通过与世界最强大的军事联盟打成平手，人民解放军（以志愿军名义）赢得了巨大的威望。</li>
+                        <li>一举洗刷了百年国耻，改变了国际社会对中国"弱国"的印象。</li>
+                        <li>这场战争被西方视为"中国确立了其作为亚洲军事强权的地位"。</li>
+                        <li>极大地增强了民族自信心和国际地位，为后续获得大国话语权奠定了基础。</li>
+                    </ul>
+                    
+                    <h3>美国军事威望的变化</h3>
+                    <ul>
+                        <li>这是美国第一次在没有取得明确胜利的停战协定上签字。</li>
+                        <li>美军不可战胜的神话被打破。</li>
+                        <li>尽管展示了强大的军事技术和后勤能力，但在面对中国军队的战术和顽强意志时，付出了沉重代价却未能取胜，这对其威望是一个打击。</li>
+                    </ul>
+                    
+                    <h3>国际影响对比</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>参战方</th>
+                                <th>战前国际地位</th>
+                                <th>战后国际地位</th>
+                                <th>威望变化</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>中国</td>
+                                <td>新成立国家，国际地位未定</td>
+                                <td>亚洲军事强国，国际话语权提升</td>
+                                <td>显著提升</td>
+                            </tr>
+                            <tr>
+                                <td>美国</td>
+                                <td>二战胜利国，世界超级大国</td>
+                                <td>军事威信受损，战略调整</td>
+                                <td>相对下降</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p>在军事威望和信心的损益上，新中国是明显的净获益方，通过朝鲜战争确立了其作为重要国际行为体的地位；而美国的威望受到了损伤，不得不重新评估其在亚洲的战略部署。</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="fullscreen-card" id="fullscreen-card-4">
+            <div class="fullscreen-content">
+                <div class="fullscreen-header">
+                    <div class="fullscreen-title">
+                        <i class="fas fa-balance-scale"></i>
+                        <h2>战争成本与承受能力</h2>
+                    </div>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="fullscreen-body">
+                    <p>胜负也取决于谁更能承受战争带来的消耗。一场即使达成了目标，但代价过于惨重的战争，也很难被称为"完胜"。</p>
+                    
+                    <h3>人员伤亡对比</h3>
+                    <p>各方数据有出入，但总体规模可观：</p>
+                    <ul>
+                        <li><strong>中朝军队</strong>：估计伤亡在100万以上</li>
+                        <li><strong>联合国军及韩军</strong>：估计伤亡在100万以上，其中美军伤亡约14万人</li>
+                    </ul>
+                    
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>参战方</th>
+                                <th>估计伤亡人数</th>
+                                <th>占军队比例</th>
+                                <th>主要伤亡时期</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>中国志愿军</td>
+                                <td>约36-40万</td>
+                                <td>约20%</td>
+                                <td>1950年冬季攻势、1951年春季攻势</td>
+                            </tr>
+                            <tr>
+                                <td>朝鲜人民军</td>
+                                <td>约60-70万</td>
+                                <td>约50%</td>
+                                <td>战争初期、1950年联合国军反攻</td>
+                            </tr>
+                            <tr>
+                                <td>美军</td>
+                                <td>约14万</td>
+                                <td>约5%</td>
+                                <td>1950年冬季、1951年春季</td>
+                            </tr>
+                            <tr>
+                                <td>韩国军队</td>
+                                <td>约50-60万</td>
+                                <td>约40%</td>
+                                <td>战争全程</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h3>经济成本分析</h3>
+                    <ul>
+                        <li>战争给中美朝韩四方都带来了巨大的经济负担。</li>
+                        <li>对于百废待兴的新中国而言，这场战争消耗了巨大的国力，延缓了国内经济建设。</li>
+                        <li>美国在战争中的直接军费开支高达约200亿美元（当时币值），间接成本更为巨大。</li>
+                        <li>朝鲜半岛基础设施遭到严重破坏，战后重建需要大量资源。</li>
+                    </ul>
+                    
+                    <h3>战争承受能力比较</h3>
+                    <p>双方都付出了难以承受的惨重代价。高昂的成本是促使各方最终回到谈判桌，并接受以"平局"方式结束战争的关键原因。</p>
+                    
+                    <p>从承受力来看，没有赢家。这场战争展示了一个重要道理：即使是实力悬殊的对手之间，战争的成本也可能超出任何一方的预期，最终导致没有明确胜利者的结局。</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline">
+            <h2><i class="fas fa-history"></i> 朝鲜战争关键时间线</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-date">1950年6月25日</div>
+                    <div class="timeline-content">朝鲜战争爆发，朝鲜人民军越过三八线进攻韩国</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1950年9月15日</div>
+                    <div class="timeline-content">联合国军在仁川登陆，扭转战局</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1950年10月19日</div>
+                    <div class="timeline-content">中国人民志愿军入朝参战</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1951年7月10日</div>
+                    <div class="timeline-content">停战谈判开始，战线基本稳定在三八线附近</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1953年7月27日</div>
+                    <div class="timeline-content">《朝鲜停战协定》签署，战争结束</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="comparison">
+            <div class="side hidden">
+                <h3><i class="fas fa-flag"></i> 中朝方面</h3>
+                <ul>
+                    <li>成功实现"保家卫国"核心战略目标</li>
+                    <li>将战线从鸭绿江推回至三八线</li>
+                    <li>极大提升了国际地位和威望</li>
+                    <li>证明能够与世界最强军事力量抗衡</li>
+                    <li>付出了巨大的人员和经济代价</li>
+                </ul>
+            </div>
+            
+            <div class="side hidden">
+                <h3><i class="fas fa-shield-alt"></i> 联合国军方面</h3>
+                <ul>
+                    <li>实现了恢复韩国主权的初始目标</li>
+                    <li>未能实现统一朝鲜的扩大目标</li>
+                    <li>军事威望受到一定打击</li>
+                    <li>证明了军事优势的局限性</li>
+                    <li>付出了巨大的人员和经济代价</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="conclusion hidden">
+            <h2><i class="fas fa-check-circle"></i> 简要总结</h2>
+            <p>综合来看，朝鲜战争在军事层面（战线）是一场平局；但在战略和政治层面，<span class="highlight">新中国通过实现其核心目标并赢得威望，是更成功的一方</span>；而"联合国军"则未能达成其扩大化的战略目标。</p>
+            <p>因此，衡量胜负是一个多维度的综合判断，需要考虑战略目标、战线变化、国际威望和战争成本等多个因素。</p>
+            <button class="btn" id="toggleDetails">显示/隐藏详细分析</button>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>军事理论研究 &copy; 2025 | 分析基于历史资料与学术研究</p>
+        </div>
+    </footer>
+    
+    <script>
+        // 滚动动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                        entry.target.classList.remove('hidden');
+                    }
+                });
+            }, observerOptions);
+            
+            // 观察所有需要动画的元素
+            const animatedElements = document.querySelectorAll('.hidden');
+            animatedElements.forEach(el => observer.observe(el));
+            
+            // 切换详细内容显示/隐藏
+            document.getElementById('toggleDetails').addEventListener('click', function() {
+                const cards = document.querySelectorAll('.card-content');
+                cards.forEach(card => {
+                    if (card.style.display === 'none') {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+            
+            // 全屏卡片功能
+            const cards = document.querySelectorAll('.card');
+            const fullscreenCards = document.querySelectorAll('.fullscreen-card');
+            const closeButtons = document.querySelectorAll('.close-btn');
+            
+            // 点击卡片打开全屏视图
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const cardId = this.getAttribute('data-card');
+                    const fullscreenCard = document.getElementById(`fullscreen-card-${cardId}`);
+                    fullscreenCard.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // 防止背景滚动
+                });
+            });
+            
+            // 点击关闭按钮关闭全屏视图
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const fullscreenCard = this.closest('.fullscreen-card');
+                    fullscreenCard.classList.remove('active');
+                    document.body.style.overflow = ''; // 恢复背景滚动
+                });
+            });
+            
+            // 点击全屏卡片背景关闭
+            fullscreenCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        this.classList.remove('active');
+                        document.body.style.overflow = ''; // 恢复背景滚动
+                    }
+                });
+            });
+            
+            // ESC键关闭全屏视图
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    fullscreenCards.forEach(card => {
+                        card.classList.remove('active');
+                    });
+                    document.body.style.overflow = ''; // 恢复背景滚动
+                }
+            });
+        });
+    </script>
+</body>
+</html>
